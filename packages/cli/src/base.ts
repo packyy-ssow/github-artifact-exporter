@@ -56,6 +56,7 @@ export default abstract class Base extends Command {
         );
       }
 
+      // toISODate() returns null if the date is invalid; fallback to "*" (any date) for GitHub search
       searchDate = datetime.toISODate() || "*";
     }
 
