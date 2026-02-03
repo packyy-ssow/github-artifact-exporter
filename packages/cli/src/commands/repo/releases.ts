@@ -40,7 +40,7 @@ export default class RepoReleases extends BaseCommand {
   static description = "Export GitHub Releases for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
+    ...BaseCommand.baseFlags,
   };
 
   async run() {

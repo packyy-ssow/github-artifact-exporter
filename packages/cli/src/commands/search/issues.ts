@@ -1,6 +1,6 @@
 /* globals process */
 
-import { flags as flagTypes } from "@oclif/command";
+import { Flags } from "@oclif/core";
 import * as dot from "dot-object";
 import createDebugger from "debug";
 import * as ProgressBar from "progress";
@@ -25,35 +25,35 @@ export default class SearchIssues extends SearchCommand {
   static description = "Export GitHub Issues using Search";
 
   static flags = {
-    ...SearchCommand.flags,
-    since: flagTypes.string({
+    ...SearchCommand.baseFlags,
+    since: Flags.string({
       description: "search issues created after yyyy-mm-dd",
     }),
-    until: flagTypes.string({
+    until: Flags.string({
       description: "search issues created before yyyy-mm-dd",
     }),
-    updatedSince: flagTypes.string({
+    updatedSince: Flags.string({
       description: "search issues updated after yyyy-mm-dd",
     }),
-    updatedUntil: flagTypes.string({
+    updatedUntil: Flags.string({
       description: "search issues updated before yyyy-mm-dd",
     }),
-    state: flagTypes.enum({
+    state: Flags.string({
       options: ["open", "closed"],
       description: "search issues in this state",
     }),
-    labels: flagTypes.string({
+    labels: Flags.string({
       description: "search issues with these labels (comma separated)",
     }),
-    jira: flagTypes.boolean({
+    jira: Flags.boolean({
       description:
         "transform output into a usable format for importing to Jira",
       dependsOn: ["format"],
     }),
-    query: flagTypes.string({
+    query: Flags.string({
       description: "Search query matching GitHub issue search syntax",
     }),
-    dateFormat: flagTypes.string({
+    dateFormat: Flags.string({
       description:
         "Date format to use when building issue list.  Examples: mm/dd/yyyy",
       default: "isoDateTime",

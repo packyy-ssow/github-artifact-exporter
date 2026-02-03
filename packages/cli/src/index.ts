@@ -1,1 +1,1 @@
-export { run } from "@oclif/command";
+export { execute, flush } from "@oclif/core";

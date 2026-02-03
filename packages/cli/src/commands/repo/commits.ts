@@ -1,6 +1,6 @@
 /* globals process */
 
-import { flags as flagTypes } from "@oclif/command";
+import { Flags } from "@oclif/core";
 import createDebugger from "debug";
 import * as dot from "dot-object";
 import * as ProgressBar from "progress";
@@ -48,15 +48,15 @@ export default class RepoCommits extends BaseCommand {
   static description = "Export GitHub Commits for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
-    branch: flagTypes.string({
+    ...BaseCommand.baseFlags,
+    branch: Flags.string({
       default: "master",
       description: "git branch to export commits for",
     }),
-    since: flagTypes.string({
+    since: Flags.string({
       description: "search commits created after yyyy-mm-dd",
     }),
-    until: flagTypes.string({
+    until: Flags.string({
       description: "search commits created before yyyy-mm-dd",
     }),
   };

@@ -40,7 +40,7 @@ export default class RepoMilestones extends BaseCommand {
   static description = "Export GitHub Milestones for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
+    ...BaseCommand.baseFlags,
   };
 
   async run() {
