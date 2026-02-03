@@ -55,11 +55,10 @@
   "license": "MIT",
   "main": "lib/index.js",
   "oclif": {
-    "commands": "./lib/commands",
     "bin": "github-artifacts-exporter",
-    "plugins": [
-      "@oclif/plugin-help"
-    ]
+    "dirname": "github-artifacts-exporter",
+    "commands": "./lib/commands",
+    "plugins": []
   },
   "repository": {
     "type": "git",

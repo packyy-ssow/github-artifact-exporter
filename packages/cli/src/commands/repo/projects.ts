@@ -58,7 +58,7 @@ export default class RepoProjects extends BaseCommand {
   async run() {
     const projects = [];
 
-    const { flags } = this.parse(RepoProjects);
+    const { flags } = await this.parse(RepoProjects);
     const { owner, repo, format } = flags;
 
     let results: RepositoryProject;

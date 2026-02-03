@@ -46,7 +46,7 @@ export default class RepoReleases extends BaseCommand {
   async run() {
     const releases = [];
 
-    const { flags } = this.parse(RepoReleases);
+    const { flags } = await this.parse(RepoReleases);
     const { owner, repo, format } = flags;
 
     let results: RepositoryReleases;

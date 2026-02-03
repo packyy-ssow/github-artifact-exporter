@@ -46,7 +46,7 @@ export default class RepoMilestones extends BaseCommand {
   async run() {
     const milestones = [];
 
-    const { flags } = this.parse(RepoMilestones);
+    const { flags } = await this.parse(RepoMilestones);
     const { owner, repo, format } = flags;
 
     let results: RepositoryMilestones;

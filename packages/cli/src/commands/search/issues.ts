@@ -107,7 +107,7 @@ export default class SearchIssues extends SearchCommand {
   }
 
   async run() {
-    const { flags } = this.parse(SearchIssues);
+    const { flags } = await this.parse(SearchIssues);
     const {
       owner,
       repo,

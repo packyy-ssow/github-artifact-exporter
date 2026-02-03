@@ -183,7 +183,7 @@ export default class RepoPulls extends BaseCommand {
   }
 
   async run() {
-    const { flags } = this.parse(RepoPulls);
+    const { flags } = await this.parse(RepoPulls);
     const { owner, repo, format, since, until } = flags;
 
     let pulls = await this.fetchPulls(LIST_PULLS_QUERY, owner, repo);

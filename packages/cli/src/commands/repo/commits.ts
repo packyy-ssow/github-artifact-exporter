@@ -64,7 +64,7 @@ export default class RepoCommits extends BaseCommand {
   async run() {
     const commits = [];
 
-    const { flags } = this.parse(RepoCommits);
+    const { flags } = await this.parse(RepoCommits);
     const { branch, owner, repo, format, since, until } = flags;
 
     if (!since || !until) {
