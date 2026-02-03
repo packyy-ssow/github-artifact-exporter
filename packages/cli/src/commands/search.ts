@@ -8,7 +8,7 @@ export default abstract class Search extends BaseCommand {
   };
 
   async run() {
-    await this.config.runHook('init', {id: this.id, argv: this.argv})
+    await this.config.runHook('init', { id: this.id, argv: this.argv })
     return this.showHelp()
   }
 }

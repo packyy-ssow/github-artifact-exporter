@@ -28,11 +28,11 @@ export default abstract class Base extends Command {
       description: "GitHub repository name",
     }),
 
-    format: Flags.string({
-      options: ["JSONL", "JSON", "CSV"],
+    format: Flags.option({
+      options: ["JSONL", "JSON", "CSV"] as const,
       default: "JSONL",
       description: "export format",
-    }),
+    })(),
   };
 
   /**

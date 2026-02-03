@@ -38,10 +38,10 @@ export default class SearchIssues extends SearchCommand {
     updatedUntil: Flags.string({
       description: "search issues updated before yyyy-mm-dd",
     }),
-    state: Flags.string({
-      options: ["open", "closed"],
+    state: Flags.option({
+      options: ["open", "closed"] as const,
       description: "search issues in this state",
-    }),
+    })(),
     labels: Flags.string({
       description: "search issues with these labels (comma separated)",
     }),
