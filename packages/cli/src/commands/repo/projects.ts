@@ -1,6 +1,6 @@
 /* globals process */
 
-import { flags as flagTypes } from "@oclif/command";
+import { Flags } from "@oclif/core";
 import createDebugger from "debug";
 import * as ProgressBar from "progress";
 import * as jsonexport from "jsonexport";
@@ -49,8 +49,8 @@ export default class RepoProjects extends BaseCommand {
   static description = "Export GitHub Milestones for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
-    projectNumber: flagTypes.integer({
+    ...BaseCommand.baseFlags,
+    projectNumber: Flags.integer({
       description: "Project number from where to pull cards",
     }),
   };
@@ -58,7 +58,7 @@ export default class RepoProjects extends BaseCommand {
   async run() {
     const projects = [];
 
-    const { flags } = this.parse(RepoProjects);
+    const { flags } = await this.parse(RepoProjects);
     const { owner, repo, format } = flags;
 
     let results: RepositoryProject;

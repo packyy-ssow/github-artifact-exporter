@@ -1,6 +1,6 @@
 /* globals process */
 
-import { flags as flagTypes } from "@oclif/command";
+import { Flags } from "@oclif/core";
 import * as dot from "dot-object";
 import createDebugger from "debug";
 import * as ProgressBar from "progress";
@@ -99,21 +99,21 @@ export default class RepoPulls extends BaseCommand {
   static description = "Export GitHub Pull Requests for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
-    owner: flagTypes.string({
+    ...BaseCommand.baseFlags,
+    owner: Flags.string({
       dependsOn: ["repo"],
       description: "GitHub repository owner",
       required: true,
     }),
-    repo: flagTypes.string({
+    repo: Flags.string({
       dependsOn: ["owner"],
       description: "GitHub repository name",
       required: true,
     }),
-    since: flagTypes.string({
+    since: Flags.string({
       description: "search pull requests created after yyyy-mm-dd",
     }),
-    until: flagTypes.string({
+    until: Flags.string({
       description: "search pull requests created before yyyy-mm-dd",
     }),
   };
@@ -183,7 +183,7 @@ export default class RepoPulls extends BaseCommand {
   }
 
   async run() {
-    const { flags } = this.parse(RepoPulls);
+    const { flags } = await this.parse(RepoPulls);
     const { owner, repo, format, since, until } = flags;
 
     let pulls = await this.fetchPulls(LIST_PULLS_QUERY, owner, repo);

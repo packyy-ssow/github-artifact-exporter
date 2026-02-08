@@ -40,13 +40,13 @@ export default class RepoReleases extends BaseCommand {
   static description = "Export GitHub Releases for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
+    ...BaseCommand.baseFlags,
   };
 
   async run() {
     const releases = [];
 
-    const { flags } = this.parse(RepoReleases);
+    const { flags } = await this.parse(RepoReleases);
     const { owner, repo, format } = flags;
 
     let results: RepositoryReleases;

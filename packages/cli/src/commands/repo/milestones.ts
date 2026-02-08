@@ -40,13 +40,13 @@ export default class RepoMilestones extends BaseCommand {
   static description = "Export GitHub Milestones for a repository";
 
   static flags = {
-    ...BaseCommand.flags,
+    ...BaseCommand.baseFlags,
   };
 
   async run() {
     const milestones = [];
 
-    const { flags } = this.parse(RepoMilestones);
+    const { flags } = await this.parse(RepoMilestones);
     const { owner, repo, format } = flags;
 
     let results: RepositoryMilestones;
